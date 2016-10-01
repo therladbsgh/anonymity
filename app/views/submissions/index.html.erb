@@ -1,0 +1,49 @@
+<div class="albums">
+  <div class="container">
+    <% if current_user && current_user.teacher? == false %>
+      <p style="margin-top: 30px"><%= link_to "Submit assignment!", new_course_assignment_submission_path(@course, @assignment) %></p>
+      <h5 style="margin-bottom: 30px">You can only see your own submissions.</h5>
+      <div class="row">
+      <% @submissions.each do |submission|%>
+        <% if submission_with_user(submission.magic_id) %>
+        <div class="item col-md-12" style="margin-bottom: 30px">
+        <div class="item col-md-9">
+          <div class="album-info">
+            <p><%= submission.content %></p>
+          </div>
+        </div>
+        <div class="item col-md-3">
+          <div class="album-info">
+            <h4><%= "By " + find_magic_word(submission.magic_id) %></h4>
+            <p><%= submission.updated_at %></p
+            <h4><%= "Grade: " + submission.grade.to_s %></h4>          </div>
+        </div>
+        </div>
+        <% end %>
+      <% end %>
+      </div>
+    <% else %>
+      <div class="row" style="margin: 30px">
+      <div class="row">
+      <% @submissions.each do |submission|%>
+        <div class="item col-md-12" style="margin-bottom: 30px">
+        <div class="item col-md-9">
+          <div class="album-info">
+            <p><%= submission.content %></p>
+          </div>
+        </div>
+        <div class="item col-md-3">
+          <div class="album-info">
+            <h4><%= "By " + find_magic_word(submission.magic_id) %></h4>
+            <p><%= submission.updated_at %></p
+            <h4><%= "Grade: " + submission.grade.to_s %></h4>
+            <h5><%= link_to "Grade this!",  edit_course_assignment_submission_path(@course, @assignment, submission) %></h5>
+            </div>
+        </div>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

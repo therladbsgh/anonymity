@@ -1,0 +1,31 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+    <h1>New Submission</h1>
+
+      <% if @assignment.online == true %>
+        <%= form_for([@course, @assignment, @submission]) do |f| %>
+        <%= f.label :content %>
+        <%= f.text_field :content %>
+        <%= f.hidden_field :grade, :value => "Pending" %>
+        <%= f.hidden_field :assignment_id, :value => @assignment.id %>
+        <%= f.hidden_field :course_id, :value => @course.id %>
+        <%= f.submit "Create" %>
+        <% end %>
+      <% end %>
+
+      <% if @assignment.online == false %>
+        <p>This is an offline assignment. Press submit to receive your code word for this assignment. You will need to write this down when you receive your assignment, so remember it!</p>
+        <%= form_for([@course, @assignment, @submission]) do |f| %>
+        <%= f.hidden_field :content %>
+        <%= f.hidden_field :grade, :value => "Pending" %>
+        <%= f.hidden_field :assignment_id, :value => @assignment.id %>
+        <%= f.hidden_field :course_id, :value => @course.id %>
+        <%= f.submit "Generate Code" %>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

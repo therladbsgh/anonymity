@@ -1,0 +1,28 @@
+<div class="photos">
+  <div class="container">
+    <h1><%= @course.title %></h1>
+    <div class="row">
+      <% @assignments.each do |assignment|%>
+        <div class="item col-md-4" style="margin-bottom: 30px">
+          <div class="photo-info">
+            <h2><%= assignment.name %></h2>
+            <p><%= assignment.description %></p>
+            <p><%= online_translate(assignment.online) + " assignment" %></p>
+            <p><%= link_to "See Assignment", course_assignment_submissions_path(@course.id, assignment.id) %></p>
+          </div>
+        </div>
+      <% end %>
+      <% if @course.assignments.count == 0 %>
+        <h4 style="text-align: center">There are no assignments.</h4>
+      <% end %>
+    </div>
+
+    <% if current_user && current_user.teacher? %>
+      <p class="options"><%= link_to "Make new assignment", new_course_assignment_path(@course) %></p>
+    <% end %>
+    <% if current_user.teacher? && @course.users.include?(@user) %>
+      <p><%= link_to "Add students", edit_users_course_path(@course) %></p>
+    <% end %>
+
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="login">
+  <div class="container">
+
+    <h1 style="text-align: center">Grade this Submission</h1>
+    <br>
+    <h4 style="width: 200%, margins: 0 auto"><%= @submission.content %></h4>
+    <br>
+
+    <div class="form">
+
+      <%= form_for([@course, @assignment, @submission]) do |f| %>
+      <%= f.label :grade %>
+      <%= f.text_field :grade %>
+      <%= f.hidden_field :assignment_id, :value => @assignment.id %>
+      <%= f.hidden_field :id, :value => @submission.id %>
+      <%= f.submit "Submit" %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

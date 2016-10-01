@@ -1,0 +1,18 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+    <h1>New Course</h1>
+
+      <%= form_for(@course) do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      <%= f.submit "Create" %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

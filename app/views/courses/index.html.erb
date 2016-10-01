@@ -1,0 +1,28 @@
+<div class="albums">
+  <div class="container">
+
+    <h1>Enrolled Courses</h1>
+    <% if @user.courses.count == 0 %>
+      <br>
+      <p>You're not enrolled in any courses. Perhaps you can ask a teacher to add you?</p>
+    <% end %>
+    <div class="row">
+      <% @courses.each do |course|%>
+        <% if @user.courses.include?(course) %>
+        <div class="item col-md-4" style="margin-bottom: 30px">
+          <div class="album-info">
+            <h2><%= course.title %></h2>
+            <p><%= course.description %></p>
+            <p><%= link_to "See Course", course_path(course) %></p>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <% if current_user && current_user.teacher? %>
+      <p class="options"><%= link_to "Make new course", new_course_path() %></p>
+    <% end %>
+
+  </div>
+</div>

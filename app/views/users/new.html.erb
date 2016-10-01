@@ -1,0 +1,24 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+    <h1>Sign up</h1>
+
+      <%= form_for(@user) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <%= f.label :rank, 'Student', :value => 'student' %>
+      <%= f.radio_button :rank, 'student', :checked => true %>
+      <%= f.label :rank, 'Teacher', :value => 'teacher' %>
+      <%= f.radio_button :rank, 'teacher'%>
+      <%= f.submit "Sign up" %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

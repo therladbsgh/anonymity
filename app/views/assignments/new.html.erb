@@ -1,0 +1,23 @@
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+    <h1>New Assignment</h1>
+
+      <%= form_for([@course, @assignment]) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      <%= f.label :online, 'Online', :value => true %>
+      <%= f.radio_button :online, true, :checked => true %>
+      <%= f.label :online, 'Offline', :value => false %>
+      <%= f.radio_button :online, false %>
+      <%= f.hidden_field :course_id, :value => @course.id %>
+      <%= f.submit "Create" %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

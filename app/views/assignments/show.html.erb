@@ -1,0 +1,18 @@
+<div class="photos">
+  <div class="container">
+    <h1><%= @courses.title %></h1>
+    <div class="row">
+      <% @assignments.each do |assignment|%>
+        <div class="item col-md-4">
+          <div class="img-container">
+            <h2><%= assignment.title %></h2>
+          </div>
+          <div class="photo-info">
+            <p><%= assignment.description %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

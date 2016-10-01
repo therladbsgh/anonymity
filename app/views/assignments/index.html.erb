@@ -1,0 +1,17 @@
+<div class="albums">
+  <div class="container">
+
+    <div class="row">
+      <% @assignments.each do |assignment|%>
+        <div class="item col-md-4">
+          <div class="album-info">
+            <h2><%= assignment.name %></h2>
+            <p><%= assignment.description %></p>
+            <p><%= link_to "See Assignment", course_assignments_path(assignment) %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
