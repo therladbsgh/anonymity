@@ -1,10 +1,10 @@
-<div class="photos">
+<div class="assigns">
   <div class="container">
     <h1><%= @course.title %></h1>
     <div class="row">
       <% @assignments.each do |assignment|%>
         <div class="item col-md-4" style="margin-bottom: 30px">
-          <div class="photo-info">
+          <div class="assign-info">
             <h2><%= assignment.name %></h2>
             <p><%= assignment.description %></p>
             <p><%= online_translate(assignment.online) + " assignment" %></p>

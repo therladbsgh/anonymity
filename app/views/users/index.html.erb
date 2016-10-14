@@ -1,39 +1,37 @@
-<div class="albums">
-  <div class="container">
-    <div class="row">
-      <div class="item col-md-4">
-        <div class="album-info">
-          <h1>Name</h1>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="item col-md-4">
+      <div class="course-info">
+        <h1>Name</h1>
       </div>
-      <div class="item col-md-4">
-        <div class="album-info">
-          <h1>Email</h1>
-        </div>
-      </div>
-      <div class="item col-md-4">
-        <div class="album-info">
-          <h1>Role</h1>
-        </div>
-      </div>
-      <% @users.each do |user|%>
-        <div class="item col-md-4">
-          <div class="album-info">
-            <h2><%= user.name %></h2>
-          </div>
-        </div>
-        <div class="item col-md-4">
-          <div class="album-info">
-            <h2><%= user.email %></h2>
-          </div>
-        </div>
-        <div class="item col-md-4">
-          <div class="album-info">
-            <h2><%= user.rank %></h2>
-          </div>
-        </div>
-      <% end %>
     </div>
-
+    <div class="item col-md-4">
+      <div class="course-info">
+        <h1>Email</h1>
+      </div>
+    </div>
+    <div class="item col-md-4">
+      <div class="course-info">
+        <h1>Role</h1>
+      </div>
+    </div>
+    <% @users.each do |user|%>
+      <div class="item col-md-4">
+        <div class="course-info">
+          <h2><%= user.name %></h2>
+        </div>
+      </div>
+      <div class="item col-md-4">
+        <div class="course-info">
+          <h2><%= user.email %></h2>
+        </div>
+      </div>
+      <div class="item col-md-4">
+        <div class="course-info">
+          <h2><%= user.rank %></h2>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
