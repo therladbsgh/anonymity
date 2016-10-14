@@ -1,4 +1,7 @@
-== README
+== ANONYMITY
+The Anonymity Project (colloquially named "AnonyMe") was a project entry for the 2016 Startup Weekend Education in Providence, which won first place. This current Rails project is a MVP (minimally viable product) or a rapid prototype to demonstrate the project in action.
+
+---
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
