@@ -23,7 +23,9 @@ class CoursesController < ApplicationController
         if @course.save
         session[:course_id] = @course.id
             redirect_to '/'
+            flash[:success] = "Successfully created the course."
         else
+            flash[:warning] = "An error occurred. Check for any mistakes."
             redirect_to '/courses/new'
         end
     end
@@ -40,9 +42,11 @@ class CoursesController < ApplicationController
         if @user != nil
             @course.users << @user
             if @course.update({users: @course.users})
+                flash[:success] = "Added users."
                 redirect_to edit_users_course_path #course_path
             end
         else
+            flash[:warning] = "Could not find user."
             redirect_to edit_users_course_path
         end
     end

@@ -23,8 +23,10 @@ class SubmissionsController < ApplicationController
         @submission = Submission.find(params[:id])
         @submission.grade = params[:grade]
         if @submission.update(submission_params)
+            flash[:success] = "Successfully updated the submission."
             redirect_to course_assignment_submissions_path(@course.id, @assignment.id)
         else
+            flash[:warning] = "An error occurred. Check for any mistakes?"
             redirect_to edit_course_assignment_submission_path
         end
     end
@@ -49,8 +51,10 @@ class SubmissionsController < ApplicationController
                 @submission.save
             end
             session[:assign_id] = @submission.id
+            flash[:success] = "Successfully created submission."
             redirect_to course_assignment_submissions_path
         else
+            flash[:success] = "An error occurred. Check for any mistakes?"
             redirect_to new_assignment_submission_path(@assignment)
         end
     end

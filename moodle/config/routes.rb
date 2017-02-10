@@ -6,4 +6,10 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+
+  get 'user/:user_id' => 'static_pages#courses'
+  get 'user/:user_id/:assign_id' => 'static_pages#assignments'
+  get 'user/:user_id/:assign_id/:subm_id' => 'static_pages#submissions'
+
+
 end

@@ -8,7 +8,6 @@ class AssignmentsController < ApplicationController
 
     def show
         @course = Course.find(params[:course_id])
-        #@assignments = Assignment.find(params[:id])
         @assignments = @course.assignments.all
     end
 
@@ -21,8 +20,10 @@ class AssignmentsController < ApplicationController
         @assignment = Assignment.new(assignment_params)
         if @assignment.save
             session[:assign_id] = @assignment.id
+            flash[:success] = "Successfully created assignment."
             redirect_to course_path(@assignment.course_id)
         else
+            flash[:warning] = "An error occurred. Check for any mistakes?"
             redirect_to new_course_assignment_path(@course)
         end
     end
