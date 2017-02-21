@@ -22,7 +22,6 @@
     <% end %>
     </div>
   <% else %>
-    <div class="row" style="margin: 30px">
     <div class="row">
     <% @submissions.each do |submission|%>
       <div class="item col-md-12" style="margin-bottom: 30px">
@@ -38,7 +37,6 @@
           <h4><%= "Grade: " + submission.grade.to_s %></h4>
           <h5><%= link_to "Grade this!",  edit_course_assignment_submission_path(@course, @assignment, submission) %></h5>
           </div>
-      </div>
       </div>
     <% end %>
     </div>
