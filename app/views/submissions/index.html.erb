@@ -8,14 +8,16 @@
       <div class="item col-md-12" style="margin-bottom: 30px">
       <div class="item col-md-9">
         <div class="course-info">
-          <p><%= submission.content %></p>
+          <p><%= link_to "Download submission", submission.content_url %></p>
         </div>
       </div>
       <div class="item col-md-3">
         <div class="course-info">
           <h4><%= "By " + find_magic_word(submission.magic_id) %></h4>
           <p><%= submission.updated_at %></p
-          <h4><%= "Grade: " + submission.grade.to_s %></h4>          </div>
+          <h4><%= "Grade: " + submission.grade.to_s %></h4>
+          <p><%= link_to "Delete", course_assignment_submission_path(@course, @assignment, submission), method: :delete, data: {confirm: "Are you sure?"}%></p>
+        </div>
       </div>
       </div>
       <% end %>
@@ -27,7 +29,7 @@
       <div class="item col-md-12" style="margin-bottom: 30px">
       <div class="item col-md-9">
         <div class="course-info">
-          <p><%= submission.content %></p>
+          <p><%= link_to "Download submission", submission.content_url %></p>
         </div>
       </div>
       <div class="item col-md-3">

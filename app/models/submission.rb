@@ -4,4 +4,6 @@ class Submission < ActiveRecord::Base
     has_many :comments
     has_one :magic
 
+    mount_uploader :content, HandinUploader
+
 end

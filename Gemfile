@@ -27,8 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use Moodle API
-gem 'moodle-api'
+# File uploading gem
+gem 'carrierwave', '~> 1.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
