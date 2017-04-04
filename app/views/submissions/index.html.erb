@@ -1,3 +1,9 @@
+<!--
+Shows the list of submissions from an assignment.
+Submitting a submission leads to submissions/new.
+Editing a submission leads to submissions/edit.
+-->
+
 <div class="container">
   <% if current_user && current_user.teacher? == false %>
     <p style="margin-top: 30px"><%= link_to "Submit assignment!", new_course_assignment_submission_path(@course, @assignment) %></p>
